@@ -52,8 +52,7 @@ public class Rocket extends Actor
         move();
         
         if(Greenfoot.isKeyDown("space")&& jeda % 8==0){
-         
-        
+            getWorld().addObject(new Laser(),getX()+80,getY());
         }else{
             if(jeda==0)jeda=40;
         }

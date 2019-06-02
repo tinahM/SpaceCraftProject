@@ -19,12 +19,13 @@ public class Laser extends Actor
             Actor actor=getOneIntersectingObject(Enemy.class);
             if(actor!=null){
                 World myWorld = getWorld();
-                 Latar latar = (Latar)getWorld();
-        Counter counter =latar.getCounter();
-        counter.addScore();
+                Latar latar = (Latar)getWorld();
+                Counter counter =latar.getCounter();
+                counter.addScore();
                 ((Enemy)actor).Hancur();
+                toRemove = true;
             }
-            if (getX()>getWorld().getWidth()+200)toRemove=true;
+            if (getX()>getWorld().getWidth())toRemove=true;
         }else{
             getWorld().removeObject(this);
         
