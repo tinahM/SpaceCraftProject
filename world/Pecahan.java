@@ -19,10 +19,12 @@ public class Pecahan extends Actor
     }
     public void act() 
     {
+        if(!((Latar) getWorld()).hasGamePaused()){
         setLocation(getX()+vx,getY()+vy);
         setRotation(getRotation()+rot);
-        if(getX()<-200 || getY()<-200 || getX()>getWorld().getWidth()+200|| getY()>getWorld().getHeight()+200){
-            getWorld().removeObject(this);
+            if(getX()<-200 || getY()<-200 || getX()>getWorld().getWidth()+200|| getY()>getWorld().getHeight()+200){
+                getWorld().removeObject(this);
+            }
         }
     }    
 }

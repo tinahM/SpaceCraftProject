@@ -13,7 +13,9 @@ public class Bundaran extends Actor
     }
     public void act() 
     {
-        if(jeda>0)jeda--;
-        else getWorld().removeObject(this);
+        if(!((Latar) getWorld()).hasGamePaused()){
+            if(jeda>0)jeda--;
+            else getWorld().removeObject(this);
+        }
     }    
 }

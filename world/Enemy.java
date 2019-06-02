@@ -29,6 +29,7 @@ public class Enemy extends Actor
         Actor actor =getOneIntersectingObject(Rocket.class);
         if(actor!=null){
             ((Rocket)actor).Hancur();
+            ((Latar)getWorld()).endGame();
             Hancur();
         }
         if(getX()<-200)toRemove=true;
@@ -47,8 +48,10 @@ public class Enemy extends Actor
     }
     public void act() 
     {
-        if(! toRemove)move();
-        
-        else getWorld().removeObject(this);
+        Latar latar = (Latar)getWorld();
+        if(!latar.isGameOver() && !latar.hasGamePaused()){
+            if(! toRemove)move();
+            else getWorld().removeObject(this);
+        }
     }    
 }

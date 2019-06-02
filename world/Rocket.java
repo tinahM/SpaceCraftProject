@@ -49,15 +49,18 @@ public class Rocket extends Actor
     }
     public void act() 
     {
-        move();
+        Latar latar = (Latar) getWorld();
+        if(!latar.hasGamePaused()){
+            move();
         
-        if(Greenfoot.isKeyDown("space")&& jeda % 8==0){
-            getWorld().addObject(new Laser(),getX()+80,getY());
-        }else{
-            if(jeda==0)jeda=40;
+            if(Greenfoot.isKeyDown("space")&& jeda % 8==0){
+                getWorld().addObject(new Laser(),getX()+80,getY());
+            }else{
+                if(jeda==0)jeda=40;
+            }
+            
+            if(toRemove)getWorld().removeObject(this);
+            jeda--;
         }
-        
-        if(toRemove)getWorld().removeObject(this);
-        jeda--;
     }
 }

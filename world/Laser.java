@@ -14,21 +14,23 @@ public class Laser extends Actor
     }
     public void act() 
     {
-        if(!toRemove){
+        Latar latar = (Latar) getWorld();
+        if(latar.isGameOver()){
+            toRemove = true;
+        }
+        if(!toRemove && !latar.hasGamePaused()){
             setLocation(getX()+vx,getY());
             Actor actor=getOneIntersectingObject(Enemy.class);
             if(actor!=null){
-                World myWorld = getWorld();
-                Latar latar = (Latar)getWorld();
                 Counter counter =latar.getCounter();
                 counter.addScore();
                 ((Enemy)actor).Hancur();
                 toRemove = true;
             }
             if (getX()>getWorld().getWidth())toRemove=true;
-        }else{
+        }
+        if(toRemove){
             getWorld().removeObject(this);
-        
         }
     }    
 }
