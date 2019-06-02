@@ -8,7 +8,7 @@ public class Latar extends World
     private int jeda=0;
     private boolean isRocketDead = false;
     private boolean isPaused = false;
-
+    private boolean isLevelFinished = false;
     public Latar()
     {    
         super(600, 400, 1,false); 
@@ -35,7 +35,11 @@ public class Latar extends World
                 removeObject(message);
                 resumeGame();
             }
-        } else {
+        } else if(isLevelFinished){
+            message.setText("Level complete\nGood job!");
+            message.setColor(Color.YELLOW);
+            addObject(message,300,200);
+        }else {
             if(Greenfoot.isKeyDown("escape")){
                 pauseGame();
             }
@@ -67,5 +71,7 @@ public class Latar extends World
     public void endGame(){
         isRocketDead = true;
     }
-    
+    public void finishLevel(){
+        isLevelFinished = true;
+    }
 }
