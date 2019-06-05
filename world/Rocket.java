@@ -50,7 +50,7 @@ public class Rocket extends Actor
     public void act() 
     {
         Latar latar = (Latar) getWorld();
-        if(!latar.hasGamePaused()){
+        if(!latar.hasGamePaused() || !latar.isGameOver()){
             move();
         
             if(Greenfoot.isKeyDown("space")&& jeda % 8==0){

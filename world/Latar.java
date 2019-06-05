@@ -5,6 +5,8 @@ public class Latar extends World
 {
     Counter counter = new Counter(100);
     Message message = new Message();
+    Health rocketHealth = new Health();
+    Rocket rocket = new Rocket();
     private int jeda=0;
     private boolean isRocketDead = false;
     private boolean isPaused = false;
@@ -12,7 +14,7 @@ public class Latar extends World
     public Latar()
     {    
         super(600, 400, 1,false); 
-        addObject (new Rocket(),100,200);
+        addObject (rocket,100,200);
     }
     public void act()
     {
@@ -22,9 +24,11 @@ public class Latar extends World
             addObject(message,300,200);
             removeObjects(getObjects(Enemy.class));
             if(Greenfoot.isKeyDown("Enter")){
+                rocket = new Rocket();
                 removeObject(message);
                 counter.reset();
-                addObject (new Rocket(),100,200);
+                rocketHealth.reset();
+                addObject (rocket,100,200);
                 isRocketDead = false;
             }
         } else if(isPaused){
@@ -43,7 +47,8 @@ public class Latar extends World
             if(Greenfoot.isKeyDown("escape")){
                 pauseGame();
             }
-            addObject(counter, 100, 40);
+            addObject(rocketHealth,180,40);
+            addObject(counter, 60, 40);
             if(jeda==1){
                 int py=Greenfoot.getRandomNumber(getHeight());
                 addObject(new Enemy(-(2+Greenfoot.getRandomNumber(3))),getWidth()+200,py);
@@ -56,6 +61,13 @@ public class Latar extends World
     {
         return counter;
     }
+    public void loseHealth(int i){
+        rocketHealth.loseHealth(i);
+        if(rocketHealth.getHealthStatus() < 1){
+            isRocketDead = true;
+            rocket.Hancur();
+        }
+    }
     public boolean isGameOver(){
         return isRocketDead;
     }
@@ -67,9 +79,6 @@ public class Latar extends World
     }
     public boolean hasGamePaused(){
         return isPaused;
-    }
-    public void endGame(){
-        isRocketDead = true;
     }
     public void finishLevel(){
         isLevelFinished = true;

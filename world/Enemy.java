@@ -27,12 +27,15 @@ public class Enemy extends Actor
     {
         setLocation(getX()+vx,getY());
         Actor actor =getOneIntersectingObject(Rocket.class);
+        Latar latar = (Latar) getWorld();
         if(actor!=null){
-            ((Rocket)actor).Hancur();
-            ((Latar)getWorld()).endGame();
+            latar.loseHealth(1);
             Hancur();
         }
-        if(getX()<-200)toRemove=true;
+        if(getX()<0){
+            latar.loseHealth(1);
+            toRemove=true;
+        }
     }
     
     public void Hancur()
