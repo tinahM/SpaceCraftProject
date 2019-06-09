@@ -40,26 +40,34 @@ public class Latar extends World
                 resumeGame();
             }
         } else if(isLevelFinished){
-            message.setText("Level complete\nGood job!");
+            message.setText("Level complete\nGood job!\nPress Enter");
+            removeObjects(getObjects(Enemy.class));
             message.setColor(Color.YELLOW);
             addObject(message,300,200);
+            nextLevel();
         }else {
             if(Greenfoot.isKeyDown("escape")){
                 pauseGame();
             }
             addObject(rocketHealth,180,40);
             addObject(counter, 60, 40);
-            if(jeda==1){
-                int py=Greenfoot.getRandomNumber(getHeight());
-                addObject(new Enemy(-(2+Greenfoot.getRandomNumber(3))),getWidth()+200,py);
-            }
+            spawnEnemy();
         }
         if(jeda>0)jeda--;
         else jeda=20;
     }
+    public void spawnEnemy(){
+        if(jeda==1){
+            int py=Greenfoot.getRandomNumber(getHeight()-100);
+            addObject(new Enemy(-(2+Greenfoot.getRandomNumber(3))),getWidth()+200,py+50);
+        }
+    }
     public Counter getCounter()
     {
         return counter;
+    }
+    public void setCounter(Counter c){
+        counter = c;
     }
     public void loseHealth(int i){
         rocketHealth.loseHealth(i);
@@ -82,5 +90,10 @@ public class Latar extends World
     }
     public void finishLevel(){
         isLevelFinished = true;
+    }
+    public void nextLevel(){
+        if(Greenfoot.isKeyDown("Enter")){
+            Greenfoot.setWorld(new Level2());
+        }
     }
 }
