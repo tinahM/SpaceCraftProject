@@ -21,7 +21,7 @@ public class Laser extends Actor
         if(!toRemove && !latar.hasGamePaused()){
             setLocation(getX()+vx,getY());
             Actor actor=getOneIntersectingObject(Enemy.class);
-            if(actor!=null){
+            if(actor!=null && getX() < 580){
                 Counter counter =latar.getCounter();
                 counter.addScore();
                 ((Enemy)actor).Hancur();
