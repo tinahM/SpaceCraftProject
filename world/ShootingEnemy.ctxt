@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ShootingEnemy
+comment1.params=v
+comment1.target=ShootingEnemy(int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=Latar
+comment3.target=void\ addedToWorld(greenfoot.World)
+numComments=4

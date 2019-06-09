@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Button
+comment1.params=
+comment1.target=void\ checkMouse()
+comment2.params=world
+comment2.target=void\ checkClick(greenfoot.World)
+comment3.params=change
+comment3.target=void\ Transparency(int)
+comment4.params=
+comment4.target=void\ act()
+numComments=5
