@@ -13,7 +13,7 @@ public class Counter extends Actor
     }  
     public void addScore()
     {
-        if(score > limit){
+        if(score >= limit){
             ((Latar) getWorld()).finishLevel();
         }
         score++;
