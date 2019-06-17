@@ -17,10 +17,9 @@ public class Enemy extends Actor
     
     public void addedToWorld(World Latar)
     {
-        GreenfootImage planeImg = new GreenfootImage("airplane.png");
-        planeImg.scale(50,50);
+        GreenfootImage planeImg = new GreenfootImage("sx.png");
+        planeImg.scale(70,70);
         setImage(planeImg);
-        setRotation(180);
     }
     
     public void move()

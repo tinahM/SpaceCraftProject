@@ -7,10 +7,10 @@ public class Laser extends Actor
     private int vx=3;
     public void addedToWorld(World Latar)
     {
-        GreenfootImage image=new GreenfootImage(50,10);
+     /*   GreenfootImage image=new GreenfootImage(50,10);
         image.setColor(Color.YELLOW);
         image.drawLine(0,5,image.getWidth()-1,5);
-        setImage(image);
+        setImage(image);*/
     }
     public void act() 
     {
