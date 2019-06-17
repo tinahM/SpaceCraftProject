@@ -7,13 +7,26 @@ public class Latar extends World
     Message message = new Message();
     Health rocketHealth = new Health();
     Rocket rocket = new Rocket();
+    private GreenfootImage rocketImg;
     private int jeda=0;
     private boolean isRocketDead = false;
     private boolean isPaused = false;
     private boolean isLevelFinished = false;
-    public Latar()
+    public Latar(GreenfootImage rocketImg){
+        super(600, 400, 1,false);
+        this.rocketImg = rocketImg;
+        //this.rocketImg.scale(80,100);
+        rocket.setImage(rocketImg);
+        addObject (rocket,100,200);
+    }
+    public Latar(String rocketImgPath)
     {    
-        super(600, 400, 1,false); 
+        super(600, 400, 1,false);
+        this.rocketImg = new GreenfootImage(rocketImgPath);
+        if(rocketImgPath != "rocket.png"){
+            this.rocketImg.scale(80,100);
+        }
+        rocket.setImage(rocketImg);
         addObject (rocket,100,200);
     }
     public void act()
@@ -25,6 +38,7 @@ public class Latar extends World
             removeObjects(getObjects(Enemy.class));
             if(Greenfoot.isKeyDown("Enter")){
                 rocket = new Rocket();
+                rocket.setImage(this.rocketImg);
                 removeObject(message);
                 counter.reset();
                 rocketHealth.reset();
@@ -93,7 +107,7 @@ public class Latar extends World
     }
     public void nextLevel(){
         if(Greenfoot.isKeyDown("Enter")){
-            Greenfoot.setWorld(new Level2());
+            Greenfoot.setWorld(new Level2(rocketImg));
         }
     }
 }

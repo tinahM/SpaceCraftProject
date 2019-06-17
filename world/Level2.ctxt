@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.target=Level2
-comment1.params=
-comment1.target=Level2()
-comment2.params=
-comment2.target=void\ act()
+comment1.params=rocketImg
+comment1.target=Level2(java.lang.String)
+comment2.params=rocketImg
+comment2.target=Level2(greenfoot.GreenfootImage)
 comment3.params=
-comment3.target=void\ spawnEnemy()
+comment3.target=void\ act()
 comment4.params=
-comment4.target=void\ nextLevel()
-numComments=5
+comment4.target=void\ spawnEnemy()
+comment5.params=
+comment5.target=void\ nextLevel()
+numComments=6

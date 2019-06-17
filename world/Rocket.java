@@ -53,7 +53,7 @@ public class Rocket extends Actor
         if(!latar.hasGamePaused() || !latar.isGameOver()){
             move();
         
-            if(Greenfoot.isKeyDown("space")&& jeda % 8==0){
+            if(Greenfoot.isKeyDown("space")&& jeda % 20==0){
                 getWorld().addObject(new Laser(),getX()+80,getY());
             }else{
                 if(jeda==0)jeda=40;

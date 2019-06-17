@@ -2,6 +2,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class WelcomeScreen extends World
 {
+    String[] rocketImages = {"rocket.png","abc.png","airplane.png"};
+    GreenfootImage logo = new GreenfootImage(rocketImages[0]);
+    int curIndex = 0;
+    Picture logoPic = new Picture(logo);
     public WelcomeScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -9,26 +13,30 @@ public class WelcomeScreen extends World
         prepare();
     }
     private void prepare(){
-        GreenfootImage logo = new GreenfootImage("rocket.png");
-        Picture logoPic = new Picture(logo);
-        addObject(logoPic,getWidth()/2,120);
+        addObject(logoPic,getWidth()/2,150);
+        addObject(new Arrow(true),100,150);
+        addObject(new Arrow(false),500,150);
         Play play = new Play();
         addObject(play,272,274);
-        play.setLocation(323,257);
         Instructions instructions = new Instructions();
         addObject(instructions,185,312);
-        instructions.setLocation(156,364);
-        instructions.setLocation(198,343);
-        instructions.setLocation(198,343);
         Exit exit = new Exit();
         addObject(exit,497,360);
-        exit.setLocation(530,343);
-        exit.setLocation(508,340);
-        exit.setLocation(457,338);
-        instructions.setLocation(366,318);
-        exit.setLocation(326,376);
         play.setLocation(321,266);
         instructions.setLocation(322,316);
         exit.setLocation(321,368);
+    }
+    
+    public void toggleRocket(int step){
+        curIndex += step;
+        if(curIndex > 2){
+            curIndex = 0;
+        } else if(curIndex < 0){
+            curIndex = 2;
+        }
+        logoPic.setImage(new GreenfootImage(rocketImages[curIndex]));
+    }
+    public String currentRocketImg(){
+        return rocketImages[curIndex];
     }
 }

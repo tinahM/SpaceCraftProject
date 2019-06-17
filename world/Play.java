@@ -12,7 +12,8 @@ public class Play extends Button
     }
     public void act() 
     {
+        WelcomeScreen world = (WelcomeScreen) getWorld();
         checkMouse();
-        checkClick(new Latar());
+        checkClick(new Latar(world.currentRocketImg()));
     }    
 }
