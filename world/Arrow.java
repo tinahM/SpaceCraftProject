@@ -22,6 +22,7 @@ public class Arrow extends Actor
             } else {
                 world.toggleRocket(1);
             }
+            Greenfoot.playSound("zapsplat_sound_design_whoosh_fast_006_32027.mp3");
         }
     }    
 }

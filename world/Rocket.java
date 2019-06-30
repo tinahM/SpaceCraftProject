@@ -55,6 +55,7 @@ public class Rocket extends Actor
         
             if(Greenfoot.isKeyDown("space")&& jeda % 20==0){
                 getWorld().addObject(new Laser(),getX()+80,getY());
+                Greenfoot.playSound("95933__robinhood76__01665-thin-laser-blast.wav");
             }else{
                 if(jeda==0)jeda=40;
             }
