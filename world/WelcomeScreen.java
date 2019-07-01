@@ -9,22 +9,19 @@ public class WelcomeScreen extends World
     public WelcomeScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        super(800, 600, 1);
         prepare();
     }
     private void prepare(){
-        addObject(logoPic,getWidth()/2,150);
-        addObject(new Arrow(true),100,150);
-        addObject(new Arrow(false),500,150);
+        addObject(logoPic,getWidth()/2,250);
+        addObject(new Arrow(true),200,250);
+        addObject(new Arrow(false),600,250);
         Play play = new Play();
-        addObject(play,272,274);
+        addObject(play,400,350);
         Instructions instructions = new Instructions();
-        addObject(instructions,185,312);
+        addObject(instructions,400,400);
         Exit exit = new Exit();
-        addObject(exit,497,360);
-        play.setLocation(321,266);
-        instructions.setLocation(322,316);
-        exit.setLocation(321,368);
+        addObject(exit,400,450);
     }
     
     public void toggleRocket(int step){

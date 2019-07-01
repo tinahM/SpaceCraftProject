@@ -13,6 +13,6 @@ public class Instructions extends Button
     public void act() 
     {
         checkMouse();
-//        checkClick(new InstructionWorld());
+        checkClick(new InstructionsWorld());
     }    
 }

@@ -4,11 +4,11 @@ public class Level2 extends Latar
 {
     public Level2(String rocketImg){
         super(rocketImg);
-        super.setCounter(new Counter(50));
+        super.setCounter(new Counter(35));
     }
     public Level2(GreenfootImage rocketImg){
         super(rocketImg);
-        super.setCounter(new Counter(50));
+        super.setCounter(new Counter(35));
     }
     private int jeda = 100;
     public void act(){

@@ -27,11 +27,11 @@ public class Rocket extends Actor
         int posY=getY();
             if(Greenfoot.isKeyDown("up"))
             {
-                posY-=5;
+                posY-=10;
             }
             else if(Greenfoot.isKeyDown("down"))
             {
-                posY+=5;
+                posY+=10;
             }
             else if(Greenfoot.isKeyDown("left"))
             {
@@ -41,7 +41,7 @@ public class Rocket extends Actor
             {
                 posX+=5;
             }
-            if(posX<10 || posX>550 || posY>380 || posY<10){
+            if(posX<10 || posX>790 || posY>550 || posY<10){
                 setLocation(getX(),getY());
             }else{
                 setLocation(posX,posY);
@@ -53,7 +53,7 @@ public class Rocket extends Actor
         if(!latar.hasGamePaused() || !latar.isGameOver()){
             move();
         
-            if(Greenfoot.isKeyDown("space")&& jeda % 20==0){
+            if(Greenfoot.isKeyDown("space")&& jeda % 15==0){
                 getWorld().addObject(new Laser(),getX()+80,getY());
                 Greenfoot.playSound("95933__robinhood76__01665-thin-laser-blast.wav");
             }else{

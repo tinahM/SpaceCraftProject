@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Latar extends World
 {
-    Counter counter = new Counter(100);
+    Counter counter = new Counter(70);
     Message message = new Message();
     Health rocketHealth = new Health();
     Rocket rocket = new Rocket();
@@ -13,7 +13,7 @@ public class Latar extends World
     private boolean isPaused = false;
     private boolean isLevelFinished = false;
     public Latar(GreenfootImage rocketImg){
-        super(600, 400, 1,false);
+        super(800, 600, 1,false);
         this.rocketImg = rocketImg;
         //this.rocketImg.scale(80,100);
         rocket.setImage(rocketImg);
@@ -21,7 +21,7 @@ public class Latar extends World
     }
     public Latar(String rocketImgPath)
     {    
-        super(600, 400, 1,false);
+        super(800, 600, 1,false);
         this.rocketImg = new GreenfootImage(rocketImgPath);
         if(rocketImgPath != "rocket.png"){
             this.rocketImg.scale(80,100);
@@ -68,10 +68,10 @@ public class Latar extends World
             spawnEnemy();
         }
         if(jeda>0)jeda--;
-        else jeda=20;
+        else jeda=200;
     }
     public void spawnEnemy(){
-        if(jeda==1){
+        if(jeda%45==0){
             int py=Greenfoot.getRandomNumber(getHeight()-100);
             addObject(new Enemy(-(2+Greenfoot.getRandomNumber(3))),getWidth()+200,py+50);
         }
