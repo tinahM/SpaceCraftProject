@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Latar extends World
 {
-    Counter counter = new Counter(70);
+    Counter counter = new Counter(10);
     Message message = new Message();
     Health rocketHealth = new Health();
     Rocket rocket = new Rocket();
@@ -15,7 +15,6 @@ public class Latar extends World
     public Latar(GreenfootImage rocketImg){
         super(800, 600, 1,false);
         this.rocketImg = rocketImg;
-        //this.rocketImg.scale(80,100);
         rocket.setImage(rocketImg);
         addObject (rocket,100,200);
     }
@@ -34,7 +33,7 @@ public class Latar extends World
         if(isRocketDead){
             message.setText("You Died!\nPress Enter to restart");
             message.setColor(Color.RED);
-            addObject(message,300,200);
+            addObject(message,400,300);
             removeObjects(getObjects(Enemy.class));
             if(Greenfoot.isKeyDown("Enter")){
                 rocket = new Rocket();
@@ -48,7 +47,7 @@ public class Latar extends World
         } else if(isPaused){
             message.setText("Paused\nPress Esc to resume");
             message.setColor(Color.GREEN);
-            addObject(message,300,200);
+            addObject(message,400,300);
             if(Greenfoot.isKeyDown("escape")){
                 removeObject(message);
                 resumeGame();
@@ -57,7 +56,7 @@ public class Latar extends World
             message.setText("Level complete\nGood job!\nPress Enter");
             removeObjects(getObjects(Enemy.class));
             message.setColor(Color.YELLOW);
-            addObject(message,300,200);
+            addObject(message,400,300);
             nextLevel();
         }else {
             if(Greenfoot.isKeyDown("escape")){

@@ -18,6 +18,7 @@ public class Button extends Actor
     
     public void checkClick(World world){
         if(Greenfoot.mouseClicked(this)){
+            Greenfoot.playSound("Mouse-Click-01-m-FesliyanStudios.com.mp3");
             Greenfoot.setWorld(world);
         }
     }
